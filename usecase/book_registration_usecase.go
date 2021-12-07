@@ -1,7 +1,5 @@
 package usecase
 
-type BookRepository struct {
-}
 type RegisterBookUseCase struct {
 }
 

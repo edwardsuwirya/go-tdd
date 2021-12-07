@@ -17,7 +17,7 @@ func TestCanRegisterBook(t *testing.T) {
 		got := registerBookUseCase.NewRegistration(dummyBook)
 		expected := Book{
 			Id:        "123",
-			Name:      "Dummy name 1",
+			Name:      "Dummy book 1",
 			Author:    "Joni",
 			Pages:     111,
 			Publisher: "Erlangga",
@@ -27,7 +27,7 @@ func TestCanRegisterBook(t *testing.T) {
 			t.Errorf("Got: %v, have no ID", got)
 		}
 		if got.Name != expected.Name {
-			t.Errorf("Got: %v, Expected: %v", got, expected)
+			t.Errorf("Got: %v, Expected: %v", got.Name, expected.Name)
 		}
 	})
 }
