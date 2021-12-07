@@ -1,10 +1,11 @@
 package usecase
 
 import (
+	"enigmacamp.com/tddbook/model"
 	"testing"
 )
 
-var dummyBook = Book{
+var dummyBook = model.Book{
 	Name:      "Dummy book 1",
 	Author:    "Joni",
 	Pages:     111,
@@ -15,7 +16,7 @@ func TestCanRegisterBook(t *testing.T) {
 	t.Run("Register Dummy Book 1", func(t *testing.T) {
 		registerBookUseCase := NewRegisterBookUseCase()
 		got := registerBookUseCase.NewRegistration(dummyBook)
-		expected := Book{
+		expected := model.Book{
 			Id:        "123",
 			Name:      "Dummy book 1",
 			Author:    "Joni",

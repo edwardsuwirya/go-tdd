@@ -1,4 +1,4 @@
-package usecase
+package model
 
 type Book struct {
 	Id        string
