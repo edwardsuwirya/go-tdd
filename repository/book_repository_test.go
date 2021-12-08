@@ -29,7 +29,7 @@ func TestCanInsertBook(t *testing.T) {
 		if got.Name != expected.Name {
 			t.Errorf("Got: %v, Expected: %v", got.Name, expected.Name)
 		}
-		if len(bookRepository.db) != 1 {
+		if len(bookRepository.(*BookRepository).db) != 1 {
 			t.Errorf("Insert book failed")
 		}
 	},
