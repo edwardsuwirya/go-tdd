@@ -6,13 +6,13 @@ import (
 )
 
 type IBookRepository interface {
-	Insert(b model.Book) *model.Book
+	Insert(b model.Book) model.Book
 }
 type BookRepository struct {
 	db *InMemDB
 }
 
-func (repo *BookRepository) Insert(b model.Book) *model.Book {
+func (repo *BookRepository) Insert(b model.Book) model.Book {
 	uid, _ := uuid.NewUUID()
 	b.Id = uid.String()
 	repo.db.Insert(b)
