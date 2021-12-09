@@ -6,15 +6,17 @@ import (
 )
 
 type BookRepository struct {
-	db []model.Book
+	db *InMemDB
 }
 
 func (repo *BookRepository) Insert(b model.Book) model.Book {
 	uid, _ := uuid.NewUUID()
 	b.Id = uid.String()
-	repo.db = append(repo.db, b)
+	repo.db.Insert(b)
 	return b
 }
-func NewBookRepository() BookRepository {
-	return BookRepository{}
+func NewBookRepository(db *InMemDB) BookRepository {
+	return BookRepository{
+		db: db,
+	}
 }
