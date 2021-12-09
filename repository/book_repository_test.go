@@ -11,10 +11,11 @@ var dummyBook = model.Book{
 	Pages:     111,
 	Publisher: "Erlangga",
 }
+var db = NewInMemDB()
 
 func TestCanInsertBook(t *testing.T) {
 	t.Run("Insert Dummy Book to repository", func(t *testing.T) {
-		bookRepository := NewBookRepository()
+		bookRepository := NewBookRepository(db)
 		got := bookRepository.Insert(dummyBook)
 		expected := model.Book{
 			Id:        "123",
@@ -29,7 +30,7 @@ func TestCanInsertBook(t *testing.T) {
 		if got.Name != expected.Name {
 			t.Errorf("Got: %v, Expected: %v", got.Name, expected.Name)
 		}
-		if len(bookRepository.(*BookRepository).db) != 1 {
+		if len(db.GetAll()) != 1 {
 			t.Errorf("Insert book failed")
 		}
 	},
