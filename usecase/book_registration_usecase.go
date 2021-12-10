@@ -6,15 +6,15 @@ import (
 )
 
 type IRegisterBookUseCase interface {
-	NewRegistration(b model.Book) *model.Book
+	NewRegistration(b model.Book) model.Book
 }
 type RegisterBookUseCase struct {
 }
 
-func (uc *RegisterBookUseCase) NewRegistration(b model.Book) *model.Book {
+func (uc *RegisterBookUseCase) NewRegistration(b model.Book) model.Book {
 	uid, _ := uuid.NewUUID()
 	b.Id = uid.String()
-	return &b
+	return b
 }
 func NewRegisterBookUseCase() IRegisterBookUseCase {
 	return &RegisterBookUseCase{}
