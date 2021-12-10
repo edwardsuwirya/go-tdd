@@ -15,9 +15,9 @@ var dummyBook = model.Book{
 type MockRepository struct {
 }
 
-func (repo *MockRepository) Insert(b model.Book) *model.Book {
+func (repo *MockRepository) Insert(b model.Book) model.Book {
 	b.Id = "123"
-	return &b
+	return b
 }
 
 func TestCanRegisterBook(t *testing.T) {

@@ -3,6 +3,7 @@ package usecase
 import (
 	"enigmacamp.com/tddbook/model"
 	"enigmacamp.com/tddbook/repository"
+	"github.com/google/uuid"
 )
 
 type IRegisterBookUseCase interface {
